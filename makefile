@@ -2,6 +2,7 @@ cc = g++
 cflags = -lgtest -lpthread -std=c++11 -Wfatal-errors
 out = bin/ut_all
 outgcovr = bin/ut_all_gcovr
+
 .PHONY: directories clean stat all gcovr
 
 all: ut_all
