@@ -21,7 +21,7 @@ directories:
 	mkdir -p bin
 push:
 	git add .
-	git commit -m $(arg)
+	git commit -m $(1)
 	git push
 clean:
 	rm -rf bin/*
