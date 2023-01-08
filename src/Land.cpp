@@ -17,7 +17,6 @@ namespace mfw{
         _house_building_cost=house_building_cost;
         _hotel_buliding_cost=hotel_buliding_cost;
         _mortgage=mortgage;
-
     }
     std::string Land::show_detail(){
         char[100] buf;

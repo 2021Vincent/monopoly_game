@@ -15,5 +15,4 @@ namespace mfw{
         ~Land()=default;
         std::string show_detail()
     };
-
 }
