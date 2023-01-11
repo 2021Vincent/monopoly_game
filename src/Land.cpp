@@ -1,28 +1,42 @@
-#pragma once
 #include "Land.h"
-namespace mfw{
+// #include "Block.h"
+#include <vector>
+#include <string>
 
-    Land::Land(std::string name, std::vector <int> tolls, int house_building_cost, int hotel_buliding_cost, int mortgage)
-        if(name.size()<6){
-            throw std::invalid_argument("size of name of land is too short!");
-        }
-        if(tolls.size()!=6){
-            throw std::invalid_argument("number of tolls is not equal oto 6!");
-        }
-        if(house_buliding_cost<0||hotel_buliding_cost<0||mortgage<0){
-            throw std::invalid_argument("invalid number of cost or mortgage");
-        }
-        _name=name;
-        _tolls=tolls;
-        _house_building_cost=house_building_cost;
-        _hotel_buliding_cost=hotel_buliding_cost;
-        _mortgage=mortgage;
+Land::Land(int id,std::string name, std::vector <int> tolls, int house_building_cost, int hotel_building_cost, int mortgage){
+    if(name.size()<7){
+        throw std::invalid_argument("size of name of land is too short!");
     }
-    std::string Land::show_detail(){
-        char[100] buf;
-        std::string t;
-        sprintf(buf,"%s %d,%d,%d,%d,%d,%d house_cost:%d hotel_cost:%d mortgage:%d",_name,_tolls.at(0),_tolls.at(1),_tolls.at(2),_tolls.at(3),_tolls.at(4),_tolls.at(5),_house_building_cost,_hotel_buliding_cost,_mortgage);
-        t+=buf;
-        return t;
+    if(tolls.size()!=6){
+        throw std::invalid_argument("number of tolls is not equal to 6!");
     }
+    if(house_building_cost<0||hotel_building_cost<0||mortgage<0||id<0){
+        throw std::invalid_argument("invalid number of cost or mortgage");
+    }
+    _id=id;
+    _name=name;
+    _tolls=tolls;
+    _house_building_cost=house_building_cost;
+    _hotel_building_cost=hotel_building_cost;
+    _mortgage=mortgage;
+    _landlord="Bank";
+}
+
+int Land::getID(){
+    return _id;
+}
+std::string Land::getName(){
+    return _name;
+}
+int Land::operator[](int n){
+    return _tolls.at(n);
+}
+int Land::getHouseBuildingCost(){
+    return _house_building_cost;
+}
+int Land::getHotelBuildingCost(){
+    return _hotel_building_cost;
+}
+int Land::getMortgage(){
+    return _mortgage;
 }
