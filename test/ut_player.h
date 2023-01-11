@@ -1,6 +1,5 @@
 #include <gtest/gtest.h>
 #include "../src/Player.h"
-// using namespace mfw;
 TEST(Player,constructor){
     Player a1("hank",30000);
     ASSERT_EQ(a1.getName(),"hank");
